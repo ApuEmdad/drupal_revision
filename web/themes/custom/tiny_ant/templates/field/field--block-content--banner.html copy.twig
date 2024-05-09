@@ -1,0 +1,41 @@
+{#
+    /**
+     * @file
+     * Theme override for a block content field.
+     *
+     * Available variables:
+     * - label_hidden: Whether the label for this field has been hidden.
+     * - title_attributes: HTML attributes for the title.
+     * - label: The label for the field.
+     * - multiple: Whether the field has multiple items.
+     * - items: List of all the items in this field.
+     * - attributes: HTML attributes for the containing element.
+     *
+     * @see template_preprocess_field()
+     */
+    #}
+
+{%- if label_hidden -%}
+	{%- if multiple -%}
+		{%- for item in items -%}
+			{{- item.content -}}
+		{%- endfor -%}
+	{%- else -%}
+		{%- for item in items -%}
+			{{- item.content -}}
+		{%- endfor -%}
+	{%- endif -%}
+{%- else -%}
+	<div{{attributes}}>
+		<div{{title_attributes.addClass(title_classes)}}>{{ label }}</div>
+		{%- if multiple -%}
+			<div>
+			{%- endif -%}
+			{%- for item in items -%}
+				{{- item.content -}}
+			{%- endfor -%}
+			{%- if multiple -%}
+			</div>
+		{%- endif -%}
+	</div>
+{%- endif -%}

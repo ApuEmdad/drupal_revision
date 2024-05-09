@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function banner_theme($existing, $type, $theme, $path)
+{
+    return [
+        'banner_block' => [
+            'variables' => [
+                'image' => NULL,
+                'heading' => NULL,
+                'description' => NULL,
+            ],
+        ],
+    ];
+}

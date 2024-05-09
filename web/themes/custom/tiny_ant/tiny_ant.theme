@@ -1,0 +1,26 @@
+<!-- This file can contain PHP functions that alter or preprocess data before it's rendered in the theme. -->
+<?php
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function tiny_ant_preprocess_views_view(&$variables)
+{
+  // Check if the view ID matches the view you want to target.
+  if ($variables['view']->id() == 'duplicate_of_bike_collection') {
+    // Add a custom class to the views output.
+    $variables['attributes']['class'][] = 'row g-4 mt-3';
+  }
+  if ($variables['view']->id() == 'bike_collection') {
+    // Add a custom class to the views output.
+    $variables['attributes']['class'][] = 'row g-4 mt-3';
+  }
+}
+
+function tiny_ant_preprocess_node(&$variables)
+{
+  if (isset($variables['content']['links']['#lazy_builder'])) {
+    $node = $variables['node'];
+    $variables['node_url'] = $node->toUrl()->toString();
+  }
+}

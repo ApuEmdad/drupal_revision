@@ -1,0 +1,21 @@
+<?php
+
+use Drupal\Core\File\FileSystemInterface;
+
+/**
+ * Implements hook_file_presave().
+ */
+function file_rename_file_presave(\Drupal\file\FileInterface $file)
+{
+    $file_unmanaged = \Drupal::service('file_system')->realpath($file->getFileUri());
+    $file_info = pathinfo($file_unmanaged);
+    $file_extension = $file_info['extension'];
+    $file_name = $file_info['filename'];
+    $new_filename = $file_name . '_' . time() . '.' . $file_extension;
+    $uri_scheme = \Drupal::service('file_system')->uriScheme($file->getFileUri());
+    $destination = $uri_scheme . '://' . $new_filename;
+    $file_exists = \Drupal::service('file_system')->prepareDirectory($destination, FileSystemInterface::EXISTS_RENAME);
+    if ($file_exists) {
+        $file->setFileUri($destination);
+    }
+}

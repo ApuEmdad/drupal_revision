@@ -1,0 +1,2 @@
+<!-- This file can contain PHP functions that alter or preprocess data before it's rendered in the theme. -->
+<?php

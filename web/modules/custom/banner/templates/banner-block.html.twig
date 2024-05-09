@@ -1,0 +1,10 @@
+{# templates/banner-block.html.twig #}
+{{ dump(content) }}
+
+<div class="banner-block">
+  <!-- {% if content.image %}
+  <img src="{{ content.image['#url'] }}" alt="{{ content.image['#alt'] }}" />
+  {% endif %} -->
+  <h2>{{ content.heading }}</h2>
+  <p>{{ content.description }}</p>
+</div>

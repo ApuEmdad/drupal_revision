@@ -1,0 +1,5 @@
+name: "Banner"
+type: module
+description: "Provides a custom banner block."
+core_version_requirement: ^10
+package: Custom
