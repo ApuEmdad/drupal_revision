@@ -17,10 +17,31 @@ function tiny_ant_preprocess_views_view(&$variables)
   }
 }
 
+
+/**
+ * Implements hook_preprocess_node().
+ */
+
 function tiny_ant_preprocess_node(&$variables)
 {
   if (isset($variables['content']['links']['#lazy_builder'])) {
     $node = $variables['node'];
     $variables['node_url'] = $node->toUrl()->toString();
   }
+}
+
+/**
+ * Implements hook_preprocess_views_view_unformatted(). 
+ */
+function tiny_ant_preprocess_views_view_unformatted(&$variables)
+{
+  if ($variables['view']->id() == 'bike_slider') {
+  }
+}
+
+/**
+ * Implements hook_preprocess_container(). 
+ */
+function tiny_ant_preprocess_container(&$variables)
+{
 }

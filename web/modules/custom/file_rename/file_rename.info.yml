@@ -1,4 +1,5 @@
 name: File Rename
 description: A custom module to provide unique file names
-core: 10.x
+core_version_requirement: ^10
 type: module
+package: Custom
