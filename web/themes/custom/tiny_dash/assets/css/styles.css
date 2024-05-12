@@ -1,8 +1,10 @@
 :root {
-  --bs-white-rgb: 255, 255, 255; /* Redefine the Bootstrap white color */
+  --bs-white-rgb: 255, 255, 255;
+  /* Redefine the Bootstrap white color */
   --bs-body-color: #212529;
   --bs-danger-rgb: 220, 53, 69;
 }
+
 .bz-slider-icon {
   background-color: rgba(155, 24, 24, 0.2);
   border-radius: 25%;
@@ -42,13 +44,13 @@
   transition-delay: 100ms;
 }
 
-footer {
+.footer {
   margin-top: 60px;
   background-color: rgb(255, 185, 185);
   padding: 32px 0px;
 }
 
-footer nav > a {
+.footer nav>a {
   text-decoration: none;
   color: black;
   font-size: 18px;
