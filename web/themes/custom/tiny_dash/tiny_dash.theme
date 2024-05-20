@@ -1,6 +1,9 @@
 <!-- This file can contain PHP functions that alter or preprocess data before it's rendered in the theme. -->
 <?php
 
+use Drupal\Core\Render\Renderer;
+use Drupal\Component\Utility\Html;
+
 /**
  * Implements hook_preprocess_views_view().
  */
@@ -27,6 +30,23 @@ function tiny_dash_preprocess_node(&$variables)
   if (isset($variables['content']['links']['#lazy_builder'])) {
     $node = $variables['node'];
     $variables['node_url'] = $node->toUrl()->toString();
+  }
+  // Check if the content type is 'bikes'.
+  if ($variables['node']->bundle() == 'bikes') {
+    // Check if the view mode is 'bike-collection'.
+    if ($variables['view_mode'] == 'full') {
+      if (!empty($variables['content']['field_bike_description'])) {
+        // Get the renderer service.
+        $renderer = \Drupal::service('renderer');
+        // Render the field to a string.
+        $description = $renderer->render($variables['content']['field_bike_description']);
+        // Strip tags and trim the description to 50 characters.
+
+        $trimmed_description = mb_strimwidth(strip_tags($description), 0, 50, "...");
+        // Add the trimmed description to the template variables.
+        $variables['bike_description_trimmed'] = $trimmed_description;
+      }
+    }
   }
 }
 

@@ -2,14 +2,20 @@
 	{% set image_url =file_url(content.field_bike_image['#items'].entity.uri.value) %}
 {% endif %}
 
+<pre>
+  
+</pre>
+{# {{ dump() }} #}
 
 <div class="">
 	<div class="card h-100 rounded-top-5">
 		<img src="{{ image_url }}" class="card-img-top " alt="..." style="height: 300px">
 		<div class="card-body">
 			<h5 class="card-title">{{content.field_bike_name}}</h5>
-			<p class="card-text">
-				{{content.field_bike_description}}
+			<p
+				class="card-text">
+				{# {{content.field_bike_description}} #}
+				{{ bike_description_trimmed }}
 			</p>
 			<div>
 				<div class="colors d-flex gap-2 align-items-center">
