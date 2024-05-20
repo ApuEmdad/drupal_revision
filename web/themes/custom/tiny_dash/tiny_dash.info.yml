@@ -6,11 +6,11 @@ core_version_requirement: ^8 || ^9 || ^10
 package: Custom
 base theme: false
 libraries:
-  - tiny_ant/global-styling
+ - tiny_dash/global-styling
 regions:
-  header: "Header"
-  banner: "Banner"
-  slider: "Slider"
-  sidebar: "Sidebar"
-  content: "Content"
-  footer: "Footer"
+ header: "Header"
+ banner: "Banner"
+ slider: "Slider"
+ sidebar: "Sidebar"
+ content: "Content"
+ footer: "Footer"
