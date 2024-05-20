@@ -5,34 +5,31 @@
 <pre>
   
 </pre>
-{# {{ dump() }} #}
 
-<div class="">
-	<div class="card h-100 rounded-top-5">
-		<img src="{{ image_url }}" class="card-img-top " alt="..." style="height: 300px">
-		<div class="card-body">
-			<h5 class="card-title">{{content.field_bike_name}}</h5>
-			<p
-				class="card-text">
-				{# {{content.field_bike_description}} #}
-				{{ bike_description_trimmed }}
-			</p>
-			<div>
-				<div class="colors d-flex gap-2 align-items-center">
-					<label for="">Colors:</label>
-					<div class="text-danger">{{content.field_bike_color}}</div>
-				</div>
-				<div class="variations d-flex align-items-center gap-2 mt-2">
-					<label for="">Variations:</label>
-					<span>{{content.field_bike_variation}}</span>
-				</div>
+<div class="card h-100 rounded-top-5">
+	<img src="{{ image_url }}" class="card-img-top " alt="..." style="height: 300px">
+	<div class="card-body">
+		<h5 class="card-title">{{content.field_bike_name}}</h5>
+		<p
+			class="card-text">
+			{# {{content.field_bike_description}} #}
+			{{ bike_description_trimmed }}
+		</p>
+		<div>
+			<div class="colors d-flex gap-2 align-items-center">
+				<label for="">Colors:</label>
+				<div class="text-danger">{{content.field_bike_color}}</div>
+			</div>
+			<div class="variations d-flex align-items-center gap-2 mt-2">
+				<label for="">Variations:</label>
+				<span>{{content.field_bike_variation}}</span>
 			</div>
 		</div>
-		<div class="card-footer">
-			<div class='installment '>
-				<p>6 months installment</p>
-			</div>
-			<a href="{{ node_url }}" class="btn btn-outline-danger">View Details</a>
+	</div>
+	<div class="card-footer">
+		<div class='installment '>
+			<p>6 months installment</p>
 		</div>
+		<a href="{{ node_url }}" class="btn btn-outline-danger">View Details</a>
 	</div>
 </div>

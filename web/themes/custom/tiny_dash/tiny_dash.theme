@@ -18,6 +18,10 @@ function tiny_dash_preprocess_views_view(&$variables)
     // Add a custom class to the views output.
     $variables['attributes']['class'][] = 'row g-4 mt-3';
   }
+  if ($variables['view']->id() == 'featured_cars') {
+    // Add a custom class to the views output.
+    $variables['attributes']['class'][] = 'row g-4 mt-3';
+  }
 }
 
 
@@ -45,6 +49,17 @@ function tiny_dash_preprocess_node(&$variables)
         $trimmed_description = mb_strimwidth(strip_tags($description), 0, 50, "...");
         // Add the trimmed description to the template variables.
         $variables['bike_description_trimmed'] = $trimmed_description;
+      }
+    }
+  }
+
+  if ($variables['node']->bundle() == 'cars') {
+    if ($variables['view_mode'] == 'full') {
+      if (!empty($variables['content']['field_car_description'])) {
+        $renderer = \Drupal::service('renderer');
+        $description = $renderer->render($variables['content']['field_car_description']);
+        $trimmed_description = mb_strimwidth(strip_tags($description), 0, 50, "...");
+        $variables['car_description_trimmed'] = $trimmed_description;
       }
     }
   }
